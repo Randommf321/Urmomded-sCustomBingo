@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Bingo and Notepad</title>
+  <link rel="icon" href="https://img.icons8.com/?size=100&id=66772&format=png&color=40C057" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      width: 90%;
+      max-width: 1200px;
+      height: 80vh;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .bingo-container {
+      flex: 3;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon {
+      width: 30px;
+      height: 30px;
+    }
+
+    .bingo-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      width: 100%;
+    }
+
+    .bingo-cell {
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      border-radius: 5px;
+      background-color: #eee;
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+
+    .bingo-cell.checked {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    input {
+      padding: 10px;
+      margin-bottom: 20px;
+      width: 100%;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4caf50;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .notepad-container {
+      flex: 2;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      background-color: #f7f7f7;
+      border-left: 2px solid #ddd;
+    }
+
+    .notepad-container textarea {
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .notepad-container button {
+      margin-top: 20px;
+    }
+
+    .controls {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="bingo-container">
+      <h1>
+        <img src="https://img.icons8.com/?size=100&id=66772&format=png&color=40C057" alt="Bingo Icon" class="icon">
+        Custom Bingo Card
+      </h1>
+      <input type="text" id="bingoInput" placeholder="Enter custom item and press Enter">
+      <div class="controls">
+        <button onclick="saveBingo()">Save Bingo</button>
+        <button onclick="loadBingo()">Load Bingo</button>
+        <button onclick="clearBingo()">Clear Bingo</button>
+      </div>
+      <div class="bingo-grid" id="bingoGrid">
+      </div>
+    </div>
+
+    <div class="notepad-container">
+      <h2>Notepad</h2>
+      <textarea id="notepad" placeholder="Type your notes here..."></textarea>
+      <button onclick="saveNote()">Save Note</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
